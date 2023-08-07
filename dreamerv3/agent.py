@@ -225,7 +225,7 @@ class WorldModel(nj.Module):
     metrics.update({f'{k}_loss_std': v.std() for k, v in losses.items()})
     metrics['model_loss_mean'] = model_loss.mean()
     metrics['model_loss_std'] = model_loss.std()
-    print("data['reward'] = ", jnp.abs(data['reward']))
+#    print("data['reward'] = ", jnp.abs(data['reward']))
     metrics['reward_max_data'] = jnp.abs(data['reward']).max()
     metrics['reward_max_pred'] = jnp.abs(dists['reward'].mean()).max()
     if 'reward' in dists and not self.config.jax.debug_nans:

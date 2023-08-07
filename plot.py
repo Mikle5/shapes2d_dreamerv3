@@ -308,12 +308,10 @@ def load_metrics(
     method_prefix=None, tasks=(r'.*',), methods=(r'.*',), workers=1):
   console = rich.console.Console()
   directory = directory.expanduser().resolve()
-  print("directory = ", directory)
   tasks = [re.compile(regex) for regex in tasks]
   methods = [re.compile(regex) for regex in methods]
   runs = []
   for filename in directory.glob(pattern):
-    print("filename = ", filename)
     task, method, seed = filename.parts[-4:-1]
     if not any(p.search(task) for p in tasks):
       continue
@@ -372,7 +370,6 @@ def plots(
   rows = int(np.ceil(amount / cols))
   size = (cols * size[0], rows * size[1])
   fig, axes = plt.subplots(rows, cols, figsize=size, squeeze=False, **kwargs)
-  print("figsize = ", fig)
   plt.title("PushingNoAgent5x5")
   plt.ylabel('score')
   plt.xlabel('steps')

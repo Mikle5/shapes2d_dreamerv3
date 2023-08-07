@@ -17,7 +17,7 @@ def main():
     import env_rescale
     import obs_resize
     warnings.filterwarnings('ignore', '.*truncated to dtype int32.*')
-    os.system("nvidia-smi")
+#    os.system("nvidia-smi")
   # See configs.yaml for all options.
     config = embodied.Config(dreamerv3.configs['defaults'])
     config = config.update(dreamerv3.configs['medium'])
