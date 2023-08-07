@@ -44,10 +44,7 @@ def main():
 #        embodied.logger.WandBOutput(logdir.name, config),
 #        embodied.logger.MLFlowOutput(logdir.name),
   ])
-#    env = gym.make('Navigation5x5-v0')
-#    env.reset()
-#    env = env_rescale.atari_env_eval(env)
-#    env = crafter.Env()  # Replace this with your Gym env.
+
     env = from_gym.FromGym('Pushing7x7-v0', obs_key='image')  # Or obs_key='vector'.
     env = dreamerv3.wrap_env(env, config)
     env = embodied.BatchEnv([env], parallel=False)
